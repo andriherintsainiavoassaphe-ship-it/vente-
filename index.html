@@ -1,252 +1,232 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ma Boutique en Ligne</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9;}
-header {background: #4CAF50; color: white; text-align: center; padding: 30px 0;}
-header h1 {margin:0;}
-header p {margin:5px 0 0;}
-.products {display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin:auto;}
-.product {background:white; border-radius:10px; text-align:center; padding:15px; box-shadow:0 2px 5px rgba(0,0,0,0.1); transition: transform 0.2s;}
-.product:hover {transform: translateY(-5px);}
-.product img {width:100%; height:180px; object-fit:cover; border-radius:6px;}
-.product h3 {margin:10px 0 5px;}
-.product p {margin:5px 0; color:#555;}
-.product button {background:#4CAF50; color:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer;}
-.product button:hover{background:#45a049;}
-#orderFormContainer {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;}
-#orderForm {background:white; width:300px; padding:20px; border-radius:10px;}
-#orderForm input {width:100%; padding:8px; margin:5px 0; border-radius:5px; border:1px solid #ccc;}
-#orderForm button {width:100%; margin-top:10px;}
-#receipt {padding:20px; max-width:1200px; margin:auto;}
-.receipt-entry {background:#fff; margin-bottom:12px; padding:12px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.1);}
-footer {text-align:center; padding:20px; background:#ddd; margin-top:20px;}
+body{font-family:Arial;background:#f4f4f4;margin:0}
+header{background:#2c7be5;color:#fff;text-align:center;padding:30px}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;padding:20px;max-width:1200px;margin:auto}
+.product{background:#fff;padding:15px;border-radius:8px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+.product img{width:100%;height:180px;object-fit:contain}
+button{background:#2c7be5;color:#fff;border:none;padding:10px;border-radius:5px;cursor:pointer}
+button:hover{background:#1a5dcc}
+#formContainer{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);align-items:center;justify-content:center}
+#form{background:#fff;padding:20px;border-radius:8px;width:300px}
+#form input{width:100%;margin:5px 0;padding:8px}
+.receipt{max-width:1200px;margin:auto;padding:20px}
+.entry{background:#fff;margin-bottom:10px;padding:10px;border-radius:6px}
 </style>
 </head>
 <body>
 
 <header>
-<h1>Bienvenue sur Ma Boutique</h1>
-<p>Découvrez nos produits et passez commande facilement — Prix en Ariary</p>
+<h1>Ma Boutique en Ligne</h1>
+<p>Vente simple – Paiement à la livraison – Prix en Ariary</p>
 </header>
 
 <div class="products">
-<!-- Produit 1 -->
+
+<!-- 1 -->
 <div class="product">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="T-shirt blanc classique">
+<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/t-shirt-1287627_1280.jpg">
 <h3>T-shirt blanc classique</h3>
 <p>15 000 Ar</p>
-<button onclick="buyProduct('T-shirt blanc classique',15000)">Acheter</button>
+<button onclick="buy('T-shirt blanc classique',15000)">Acheter</button>
 </div>
 
-<!-- Produit 2 -->
+<!-- 2 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg" alt="Chemise bleue à manches longues">
-<h3>Chemise bleue à manches longues</h3>
+<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/shirt-1850490_1280.jpg">
+<h3>Chemise bleue manches longues</h3>
 <p>20 000 Ar</p>
-<button onclick="buyProduct('Chemise bleue à manches longues',20000)">Acheter</button>
+<button onclick="buy('Chemise bleue manches longues',20000)">Acheter</button>
 </div>
 
-<!-- Produit 3 -->
+<!-- 3 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="Jean slim noir">
+<img src="https://cdn.pixabay.com/photo/2014/08/26/21/49/jeans-428614_1280.jpg">
 <h3>Jean slim noir</h3>
 <p>30 000 Ar</p>
-<button onclick="buyProduct('Jean slim noir',30000)">Acheter</button>
+<button onclick="buy('Jean slim noir',30000)">Acheter</button>
 </div>
 
-<!-- Produit 4 -->
+<!-- 4 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/428341/pexels-photo-428341.jpeg" alt="Sweat à capuche gris">
+<img src="https://cdn.pixabay.com/photo/2017/08/07/14/02/hoodie-2602440_1280.jpg">
 <h3>Sweat à capuche gris</h3>
 <p>40 000 Ar</p>
-<button onclick="buyProduct('Sweat à capuche gris',40000)">Acheter</button>
+<button onclick="buy('Sweat à capuche gris',40000)">Acheter</button>
 </div>
 
-<!-- Produit 5 -->
+<!-- 5 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/774911/pexels-photo-774911.jpeg" alt="Veste en cuir marron">
+<img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/leather-jacket-1866520_1280.jpg">
 <h3>Veste en cuir marron</h3>
 <p>55 000 Ar</p>
-<button onclick="buyProduct('Veste en cuir marron',55000)">Acheter</button>
+<button onclick="buy('Veste en cuir marron',55000)">Acheter</button>
 </div>
 
-<!-- Produit 6 -->
+<!-- 6 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg" alt="Robe rouge courte">
+<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/dress-1287626_1280.jpg">
 <h3>Robe rouge courte</h3>
 <p>30 000 Ar</p>
-<button onclick="buyProduct('Robe rouge courte',30000)">Acheter</button>
+<button onclick="buy('Robe rouge courte',30000)">Acheter</button>
 </div>
 
-<!-- Produit 7 -->
+<!-- 7 -->
 <div class="product">
-<img src="https://images.unsplash.com/photo-1503342452485-86f7b55c0b7e" alt="Blouse fleurie">
+<img src="https://cdn.pixabay.com/photo/2017/08/06/11/51/blouse-2598064_1280.jpg">
 <h3>Blouse fleurie</h3>
 <p>20 000 Ar</p>
-<button onclick="buyProduct('Blouse fleurie',20000)">Acheter</button>
+<button onclick="buy('Blouse fleurie',20000)">Acheter</button>
 </div>
 
-<!-- Produit 8 -->
+<!-- 8 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="Jupe crayon noire">
+<img src="https://cdn.pixabay.com/photo/2017/08/07/14/02/skirt-2602439_1280.jpg">
 <h3>Jupe crayon noire</h3>
 <p>15 000 Ar</p>
-<button onclick="buyProduct('Jupe crayon noire',15000)">Acheter</button>
+<button onclick="buy('Jupe crayon noire',15000)">Acheter</button>
 </div>
 
-<!-- Produit 9 -->
+<!-- 9 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/298862/pexels-photo-298862.jpeg" alt="Jean taille haute bleu clair">
+<img src="https://cdn.pixabay.com/photo/2016/11/19/15/36/jeans-1837878_1280.jpg">
 <h3>Jean taille haute bleu clair</h3>
 <p>30 000 Ar</p>
-<button onclick="buyProduct('Jean taille haute bleu clair',30000)">Acheter</button>
+<button onclick="buy('Jean taille haute bleu clair',30000)">Acheter</button>
 </div>
 
-<!-- Produit 10 -->
+<!-- 10 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/428333/pexels-photo-428333.jpeg" alt="Pull oversize beige">
+<img src="https://cdn.pixabay.com/photo/2017/08/07/14/02/sweater-2602441_1280.jpg">
 <h3>Pull oversize beige</h3>
 <p>25 000 Ar</p>
-<button onclick="buyProduct('Pull oversize beige',25000)">Acheter</button>
+<button onclick="buy('Pull oversize beige',25000)">Acheter</button>
 </div>
 
-<!-- Produit 11 -->
+<!-- 11 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="Baskets blanches classique">
-<h3>Baskets blanches classique</h3>
+<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/shoes-1287620_1280.jpg">
+<h3>Baskets blanches classiques</h3>
 <p>70 000 Ar</p>
-<button onclick="buyProduct('Baskets blanches classique',70000)">Acheter</button>
+<button onclick="buy('Baskets blanches classiques',70000)">Acheter</button>
 </div>
 
-<!-- Produit 12 -->
+<!-- 12 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/19090/pexels-photo.jpg" alt="Mocassins marron en cuir">
+<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/shoes-1850495_1280.jpg">
 <h3>Mocassins marron en cuir</h3>
 <p>65 000 Ar</p>
-<button onclick="buyProduct('Mocassins marron en cuir',65000)">Acheter</button>
+<button onclick="buy('Mocassins marron en cuir',65000)">Acheter</button>
 </div>
 
-<!-- Produit 13 -->
+<!-- 13 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="Bottines noires">
+<img src="https://cdn.pixabay.com/photo/2017/08/07/14/02/boots-2602438_1280.jpg">
 <h3>Bottines noires</h3>
 <p>60 000 Ar</p>
-<button onclick="buyProduct('Bottines noires',60000)">Acheter</button>
+<button onclick="buy('Bottines noires',60000)">Acheter</button>
 </div>
 
-<!-- Produit 14 -->
+<!-- 14 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/267320/pexels-photo-267320.jpeg" alt="Escarpins rouges">
+<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/high-heels-1287624_1280.jpg">
 <h3>Escarpins rouges</h3>
 <p>30 000 Ar</p>
-<button onclick="buyProduct('Escarpins rouges',30000)">Acheter</button>
+<button onclick="buy('Escarpins rouges',30000)">Acheter</button>
 </div>
 
-<!-- Produit 15 -->
+<!-- 15 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/2529147/pexels-photo-2529147.jpeg" alt="Ballerine noire">
-<h3>Ballerine noire</h3>
+<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/shoes-1850497_1280.jpg">
+<h3>Ballerines noires</h3>
 <p>20 000 Ar</p>
-<button onclick="buyProduct('Ballerine noire',20000)">Acheter</button>
+<button onclick="buy('Ballerines noires',20000)">Acheter</button>
 </div>
 
-<!-- Produit 16 -->
+<!-- 16 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/19090/pexels-photo.jpg" alt="Sandales beiges">
+<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/sandals-1287623_1280.jpg">
 <h3>Sandales beiges</h3>
 <p>25 000 Ar</p>
-<button onclick="buyProduct('Sandales beiges',25000)">Acheter</button>
+<button onclick="buy('Sandales beiges',25000)">Acheter</button>
 </div>
 
-<!-- Produit 17 -->
+<!-- 17 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/267335/pexels-photo-267335.jpeg" alt="Sac à dos noir">
+<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/backpack-1850492_1280.jpg">
 <h3>Sac à dos noir</h3>
 <p>50 000 Ar</p>
-<button onclick="buyProduct('Sac à dos noir',50000)">Acheter</button>
+<button onclick="buy('Sac à dos noir',50000)">Acheter</button>
 </div>
 
-<!-- Produit 18 -->
+<!-- 18 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="Sac à bandoulière marron">
+<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/bag-1287622_1280.jpg">
 <h3>Sac à bandoulière marron</h3>
 <p>30 000 Ar</p>
-<button onclick="buyProduct('Sac à bandoulière marron',30000)">Acheter</button>
+<button onclick="buy('Sac à bandoulière marron',30000)">Acheter</button>
 </div>
 
-<!-- Produit 19 -->
+<!-- 19 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="Sac à main rouge">
+<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/handbag-1850496_1280.jpg">
 <h3>Sac à main rouge</h3>
 <p>20 000 Ar</p>
-<button onclick="buyProduct('Sac à main rouge',20000)">Acheter</button>
+<button onclick="buy('Sac à main rouge',20000)">Acheter</button>
 </div>
 
-<!-- Produit 20 -->
+<!-- 20 -->
 <div class="product">
-<img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="Pochette argentée">
+<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/clutch-1287621_1280.jpg">
 <h3>Pochette argentée</h3>
 <p>40 000 Ar</p>
-<button onclick="buyProduct('Pochette argentée',40000)">Acheter</button>
+<button onclick="buy('Pochette argentée',40000)">Acheter</button>
 </div>
 
 </div>
 
-<!-- Formulaire commande -->
-<div id="orderFormContainer">
-<div id="orderForm">
-<h3>Finaliser la commande</h3>
-<p id="selectedProduct"></p>
-<input type="text" id="name" placeholder="Nom complet">
-<input type="email" id="email" placeholder="Email">
-<input type="text" id="address" placeholder="Adresse">
-<button onclick="submitOrder()">Confirmer la commande</button>
-<button onclick="closeForm()" style="background:#f44336;color:white;">Annuler</button>
+<!-- FORMULAIRE + REÇU -->
+<div id="formContainer">
+<div id="form">
+<h3>Commande</h3>
+<p id="prod"></p>
+<input id="name" placeholder="Nom">
+<input id="contact" placeholder="Téléphone">
+<input id="address" placeholder="Adresse">
+<button onclick="send()">Valider</button>
+<button onclick="closeForm()">Annuler</button>
 </div>
 </div>
 
-<div id="receipt"></div>
-
-<footer>&copy; 2026 Ma Boutique en Ligne</footer>
+<div class="receipt" id="receipt"></div>
 
 <script>
-let currentProduct = '';
-let currentPrice = 0;
-
-function buyProduct(name, price){
-  currentProduct = name;
-  currentPrice = price;
-  document.getElementById('selectedProduct').innerText = `${name} — ${price} Ar`;
-  document.getElementById('orderFormContainer').style.display='flex';
+let p='',pr=0;
+function buy(n,price){
+p=n;pr=price;
+document.getElementById('prod').innerText=n+' - '+price+' Ar';
+document.getElementById('formContainer').style.display='flex';
 }
-
-function closeForm(){
-  document.getElementById('orderFormContainer').style.display='none';
-}
-
-function submitOrder(){
-  const name=document.getElementById('name').value;
-  const email=document.getElementById('email').value;
-  const address=document.getElementById('address').value;
-  if(!name||!email||!address){alert("Remplis tous les champs."); return;}
-  const order={produit:currentProduct, prix:currentPrice, nom:name,email:email,adresse:address,date:new Date().toLocaleString()};
-  let orders=JSON.parse(localStorage.getItem('orders'))||[];
-  orders.push(order);
-  localStorage.setItem('orders',JSON.stringify(orders));
-  const receiptDiv=document.getElementById('receipt');
-  receiptDiv.innerHTML+=`<div class="receipt-entry"><strong>Commande reçue :</strong><br>
-  Produit : ${order.produit}<br>
-  Prix : ${order.prix} Ar<br>
-  Nom : ${order.nom}<br>
-  Email : ${order.email}<br>
-  Adresse : ${order.adresse}<br>
-  Date : ${order.date}</div>`;
-  closeForm();
-  document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('address').value='';
+function closeForm(){document.getElementById('formContainer').style.display='none'}
+function send(){
+let r=document.getElementById('receipt');
+r.innerHTML+=`<div class="entry">
+<strong>Reçu de vente</strong><br>
+Produit : ${p}<br>
+Prix : ${pr} Ar<br>
+Client : ${name.value}<br>
+Contact : ${contact.value}<br>
+Adresse : ${address.value}<br>
+Date : ${new Date().toLocaleString()}
+</div>`;
+closeForm();
+name.value=contact.value=address.value='';
 }
 </script>
 
