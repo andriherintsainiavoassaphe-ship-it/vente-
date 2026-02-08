@@ -2,21 +2,25 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ma Boutique en Ligne</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{font-family:Arial;background:#f4f4f4;margin:0}
-header{background:#2c7be5;color:#fff;text-align:center;padding:30px}
-.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;padding:20px;max-width:1200px;margin:auto}
-.product{background:#fff;padding:15px;border-radius:8px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,.1)}
-.product img{width:100%;height:180px;object-fit:contain}
-button{background:#2c7be5;color:#fff;border:none;padding:10px;border-radius:5px;cursor:pointer}
-button:hover{background:#1a5dcc}
-#formContainer{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);align-items:center;justify-content:center}
-#form{background:#fff;padding:20px;border-radius:8px;width:300px}
-#form input{width:100%;margin:5px 0;padding:8px}
-.receipt{max-width:1200px;margin:auto;padding:20px}
-.entry{background:#fff;margin-bottom:10px;padding:10px;border-radius:6px}
+body {font-family: Arial, sans-serif; margin:0; background:#f4f4f4;}
+header {background:#2c7be5; color:white; text-align:center; padding:30px;}
+header h1 {margin:0;}
+header p {margin:5px 0;}
+.products {display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:20px; padding:20px; max-width:1200px; margin:auto;}
+.product {background:white; padding:15px; border-radius:8px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.product img {width:100%; height:180px; object-fit:contain;}
+.product h3 {margin:10px 0 5px;}
+.product p {margin:5px 0; color:#555;}
+button {background:#2c7be5; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;}
+button:hover {background:#1a5dcc;}
+#formContainer {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center;}
+#form {background:white; padding:20px; border-radius:8px; width:300px;}
+#form input {width:100%; padding:8px; margin:5px 0; border-radius:5px; border:1px solid #ccc;}
+.receipt {max-width:1200px; margin:auto; padding:20px;}
+.entry {background:#fff; margin-bottom:10px; padding:10px; border-radius:6px;}
 </style>
 </head>
 <body>
@@ -30,7 +34,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 1 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/t-shirt-1287627_1280.jpg">
+<img src="images/tshirt-blanc.jpg" alt="T-shirt blanc classique">
 <h3>T-shirt blanc classique</h3>
 <p>15 000 Ar</p>
 <button onclick="buy('T-shirt blanc classique',15000)">Acheter</button>
@@ -38,7 +42,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 2 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/shirt-1850490_1280.jpg">
+<img src="images/chemise-bleue.jpg" alt="Chemise bleue manches longues">
 <h3>Chemise bleue manches longues</h3>
 <p>20 000 Ar</p>
 <button onclick="buy('Chemise bleue manches longues',20000)">Acheter</button>
@@ -46,7 +50,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 3 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2014/08/26/21/49/jeans-428614_1280.jpg">
+<img src="images/jean-noir.jpg" alt="Jean slim noir">
 <h3>Jean slim noir</h3>
 <p>30 000 Ar</p>
 <button onclick="buy('Jean slim noir',30000)">Acheter</button>
@@ -54,7 +58,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 4 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2017/08/07/14/02/hoodie-2602440_1280.jpg">
+<img src="images/sweat-gris.jpg" alt="Sweat à capuche gris">
 <h3>Sweat à capuche gris</h3>
 <p>40 000 Ar</p>
 <button onclick="buy('Sweat à capuche gris',40000)">Acheter</button>
@@ -62,7 +66,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 5 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/leather-jacket-1866520_1280.jpg">
+<img src="images/veste-cuivre.jpg" alt="Veste en cuir marron">
 <h3>Veste en cuir marron</h3>
 <p>55 000 Ar</p>
 <button onclick="buy('Veste en cuir marron',55000)">Acheter</button>
@@ -70,7 +74,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 6 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/dress-1287626_1280.jpg">
+<img src="images/robe-rouge.jpg" alt="Robe rouge courte">
 <h3>Robe rouge courte</h3>
 <p>30 000 Ar</p>
 <button onclick="buy('Robe rouge courte',30000)">Acheter</button>
@@ -78,7 +82,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 7 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2017/08/06/11/51/blouse-2598064_1280.jpg">
+<img src="images/blouse-fleurie.jpg" alt="Blouse fleurie">
 <h3>Blouse fleurie</h3>
 <p>20 000 Ar</p>
 <button onclick="buy('Blouse fleurie',20000)">Acheter</button>
@@ -86,7 +90,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 8 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2017/08/07/14/02/skirt-2602439_1280.jpg">
+<img src="images/jupe-noire.jpg" alt="Jupe crayon noire">
 <h3>Jupe crayon noire</h3>
 <p>15 000 Ar</p>
 <button onclick="buy('Jupe crayon noire',15000)">Acheter</button>
@@ -94,7 +98,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 9 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/11/19/15/36/jeans-1837878_1280.jpg">
+<img src="images/jean-bleu.jpg" alt="Jean taille haute bleu clair">
 <h3>Jean taille haute bleu clair</h3>
 <p>30 000 Ar</p>
 <button onclick="buy('Jean taille haute bleu clair',30000)">Acheter</button>
@@ -102,7 +106,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 10 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2017/08/07/14/02/sweater-2602441_1280.jpg">
+<img src="images/pull-beige.jpg" alt="Pull oversize beige">
 <h3>Pull oversize beige</h3>
 <p>25 000 Ar</p>
 <button onclick="buy('Pull oversize beige',25000)">Acheter</button>
@@ -110,7 +114,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 11 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/shoes-1287620_1280.jpg">
+<img src="images/baskets-blanches.jpg" alt="Baskets blanches classiques">
 <h3>Baskets blanches classiques</h3>
 <p>70 000 Ar</p>
 <button onclick="buy('Baskets blanches classiques',70000)">Acheter</button>
@@ -118,7 +122,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 12 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/shoes-1850495_1280.jpg">
+<img src="images/mocassins-marron.jpg" alt="Mocassins marron en cuir">
 <h3>Mocassins marron en cuir</h3>
 <p>65 000 Ar</p>
 <button onclick="buy('Mocassins marron en cuir',65000)">Acheter</button>
@@ -126,7 +130,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 13 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2017/08/07/14/02/boots-2602438_1280.jpg">
+<img src="images/bottines-noires.jpg" alt="Bottines noires">
 <h3>Bottines noires</h3>
 <p>60 000 Ar</p>
 <button onclick="buy('Bottines noires',60000)">Acheter</button>
@@ -134,7 +138,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 14 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/high-heels-1287624_1280.jpg">
+<img src="images/escarpins-rouges.jpg" alt="Escarpins rouges">
 <h3>Escarpins rouges</h3>
 <p>30 000 Ar</p>
 <button onclick="buy('Escarpins rouges',30000)">Acheter</button>
@@ -142,7 +146,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 15 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/shoes-1850497_1280.jpg">
+<img src="images/ballerines-noires.jpg" alt="Ballerines noires">
 <h3>Ballerines noires</h3>
 <p>20 000 Ar</p>
 <button onclick="buy('Ballerines noires',20000)">Acheter</button>
@@ -150,7 +154,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 16 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/sandals-1287623_1280.jpg">
+<img src="images/sandales-beiges.jpg" alt="Sandales beiges">
 <h3>Sandales beiges</h3>
 <p>25 000 Ar</p>
 <button onclick="buy('Sandales beiges',25000)">Acheter</button>
@@ -158,7 +162,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 17 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/backpack-1850492_1280.jpg">
+<img src="images/sac-dos-noir.jpg" alt="Sac à dos noir">
 <h3>Sac à dos noir</h3>
 <p>50 000 Ar</p>
 <button onclick="buy('Sac à dos noir',50000)">Acheter</button>
@@ -166,7 +170,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 18 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/bag-1287622_1280.jpg">
+<img src="images/sac-bandouliere.jpg" alt="Sac à bandoulière marron">
 <h3>Sac à bandoulière marron</h3>
 <p>30 000 Ar</p>
 <button onclick="buy('Sac à bandoulière marron',30000)">Acheter</button>
@@ -174,7 +178,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 19 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/handbag-1850496_1280.jpg">
+<img src="images/sac-main-rouge.jpg" alt="Sac à main rouge">
 <h3>Sac à main rouge</h3>
 <p>20 000 Ar</p>
 <button onclick="buy('Sac à main rouge',20000)">Acheter</button>
@@ -182,7 +186,7 @@ button:hover{background:#1a5dcc}
 
 <!-- 20 -->
 <div class="product">
-<img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/clutch-1287621_1280.jpg">
+<img src="images/pochette-argentee.jpg" alt="Pochette argentée">
 <h3>Pochette argentée</h3>
 <p>40 000 Ar</p>
 <button onclick="buy('Pochette argentée',40000)">Acheter</button>
@@ -190,7 +194,7 @@ button:hover{background:#1a5dcc}
 
 </div>
 
-<!-- FORMULAIRE + REÇU -->
+<!-- Formulaire + Reçu -->
 <div id="formContainer">
 <div id="form">
 <h3>Commande</h3>
@@ -206,9 +210,9 @@ button:hover{background:#1a5dcc}
 <div class="receipt" id="receipt"></div>
 
 <script>
-let p='',pr=0;
+let p='', pr=0;
 function buy(n,price){
-p=n;pr=price;
+p=n; pr=price;
 document.getElementById('prod').innerText=n+' - '+price+' Ar';
 document.getElementById('formContainer').style.display='flex';
 }
@@ -231,6 +235,3 @@ name.value=contact.value=address.value='';
 
 </body>
 </html>
-
-
-
