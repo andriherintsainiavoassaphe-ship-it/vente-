@@ -415,3 +415,64 @@ function send(){
   name.value = contact.value = address.value = "";
 }
 </script>
+<script>
+let produit = "";
+let prix = 0;
+
+/* 🔹 charger historique au démarrage */
+window.onload = function(){
+  let hist = localStorage.getItem("historiqueCommandes");
+  if(hist){
+    document.getElementById("receipt").innerHTML = hist;
+  }
+};
+
+function buy(n, p){
+  produit = n;
+  prix = p;
+  document.getElementById("prod").innerHTML =
+    "<b>" + n + "</b> — " + p + " Ar";
+  document.getElementById("formContainer").style.display = "flex";
+}
+
+function closeForm(){
+  document.getElementById("formContainer").style.display = "none";
+}
+
+function send(){
+  let nom = document.getElementById("name").value;
+  let tel = document.getElementById("contact").value;
+  let adr = document.getElementById("address").value;
+
+  if(!nom || !tel || !adr){
+    alert("Remplis toutes les infos !");
+    return;
+  }
+
+  let bloc = `
+    <div style="background:#fff;padding:15px;border-radius:6px;margin-bottom:10px;">
+      <h4>Reçu de commande</h4>
+      Produit : ${produit}<br>
+      Prix : ${prix} Ar<br>
+      Client : ${nom}<br>
+      Téléphone : ${tel}<br>
+      Adresse : ${adr}<br>
+      Date : ${new Date().toLocaleString()}
+    </div>
+  `;
+
+  /* 🔹 afficher */
+  document.getElementById("receipt").innerHTML += bloc;
+
+  /* 🔹 stocker dans historique navigateur */
+  localStorage.setItem(
+    "historiqueCommandes",
+    document.getElementById("receipt").innerHTML
+  );
+
+  closeForm();
+  document.getElementById("name").value="";
+  document.getElementById("contact").value="";
+  document.getElementById("address").value="";
+}
+</script>
