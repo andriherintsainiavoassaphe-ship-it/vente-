@@ -367,3 +367,67 @@ v<footer class="site-footer">
   margin-right:8px;
 }
 </style>
+<!-- FORMULAIRE COMMANDE -->
+<div id="formContainer" style="display:none; position:fixed; inset:0;
+background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+
+  <div style="background:#fff; padding:20px; border-radius:8px; width:300px;">
+    <h3>Commande</h3>
+    <p id="prod"></p>
+
+    <input id="name" placeholder="Nom"><br>
+    <input id="contact" placeholder="Téléphone"><br>
+    <input id="address" placeholder="Adresse"><br><br>
+
+    <button onclick="send()">Valider</button>
+    <button onclick="closeForm()">Annuler</button>
+  </div>
+</div>
+
+<!-- ZONE REÇU -->
+<div id="receipt" style="max-width:900px;margin:auto;padding:20px;"></div>
+
+
+<script>
+let produit = "";
+let prix = 0;
+
+function buy(n, p){
+  produit = n;
+  prix = p;
+  document.getElementById("prod").innerHTML =
+    "<b>" + n + "</b> — " + p + " Ar";
+  document.getElementById("formContainer").style.display = "flex";
+}
+
+function closeForm(){
+  document.getElementById("formContainer").style.display = "none";
+}
+
+function send(){
+  let nom = document.getElementById("name").value;
+  let tel = document.getElementById("contact").value;
+  let adr = document.getElementById("address").value;
+
+  if(!nom || !tel || !adr){
+    alert("Remplis toutes les infos !");
+    return;
+  }
+
+  document.getElementById("receipt").innerHTML += `
+    <div style="background:#fff;padding:15px;
+    border-radius:6px;margin-bottom:10px;">
+      <h4>Reçu de commande</h4>
+      Produit : ${produit}<br>
+      Prix : ${prix} Ar<br>
+      Client : ${nom}<br>
+      Téléphone : ${tel}<br>
+      Adresse : ${adr}<br>
+      Date : ${new Date().toLocaleString()}
+    </div>
+  `;
+
+  closeForm();
+  name.value = contact.value = address.value = "";
+}
+</script>
