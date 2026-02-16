@@ -258,22 +258,6 @@ button:hover {background:#1a5dcc;}
 <p>50 000 Ar</p>
 <button onclick="buy('bracelet',50000)">Acheter</button>
 </div>
-<!-- Formulaire + Reçu -->
-<div id="formContainer">
-<div id="form">
-<h3>Commande</h3>
-<p id="prod"></p>
-<input id="name" placeholder="Nom">
-<input id="contact" placeholder="Téléphone">
-<input id="address" placeholder="Adresse">
-<button onclick="send()">Valider</button>
-<button onclick="closeForm()">Annuler</button>
-</div>
-</div>
-
-<div class="receipt" id="receipt"></div>
-
-<script>
 let p='', pr=0;
 function buy(n,price){
 p=n; pr=price;
