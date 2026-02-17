@@ -3,493 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ma Boutique en Ligne</title>
+<title>BOUTIQUEKO</title>
 <style>
-body {font-family: Arial, sans-serif; margin:0; background:#f4f4f4;}
-header {background:#2c7be5; color:white; text-align:center; padding:30px;}
-header h1 {margin:0;}
-header p {margin:5px 0;}
-.products {display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:20px; padding:20px; max-width:1200px; margin:auto;}
-.product {background:white; padding:15px; border-radius:8px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
-.product img {width:100%; height:180px; object-fit:contain;}
-.product h3 {margin:10px 0 5px;}
-.product p {margin:5px 0; color:#555;}
-button {background:#2c7be5; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;}
-button:hover {background:#1a5dcc;}
-#formContainer {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center;}
-#form {background:white; padding:20px; border-radius:8px; width:300px;}
-#form input {width:100%; padding:8px; margin:5px 0; border-radius:5px; border:1px solid #ccc;}
-.receipt {max-width:1200px; margin:auto; padding:20px;}
-.entry {background:#fff; margin-bottom:10px; padding:10px; border-radius:6px;}
+body {
+    margin:0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:#f5f6f8;
+    color:#333;
+}
+
+/* HEADER */
+header {
+    background:#111;
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+}
+header .logo {
+    display:flex;
+    align-items:center;
+    font-size:22px;
+    font-weight:bold;
+}
+header .logo img {
+    width:42px;
+    margin-right:10px;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(120deg,#2c7be5,#1a5dcc);
+    color:white;
+    padding:40px 20px;
+    text-align:center;
+}
+.hero h1 { margin:0; font-size:32px;}
+.hero p { margin-top:8px; opacity:.9; }
+
+/* PRODUITS */
+.products {
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:22px;
+}
+.product {
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+    transition:.2s;
+}
+.product:hover {
+    transform:translateY(-4px);
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+}
+.product img {
+    width:100%;
+    height:180px;
+    object-fit:contain;
+}
+.product h3 { margin:10px 0 6px; font-size:17px; }
+.product p { font-weight:bold; color:#2c7be5; margin:5px 0 12px; }
+button {
+    background:#2c7be5;
+    border:none;
+    color:white;
+    padding:10px 14px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:600;
+}
+button:hover { background:#1a5dcc; }
+
+/* FORMULAIRE */
+#formContainer {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+}
+#formBox {
+    background:white;
+    padding:22px;
+    border-radius:10px;
+    width:320px;
+}
+#formBox input {
+    width:100%;
+    padding:9px;
+    margin:6px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* REÇU & FACTURE */
+#receipt {
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+.entry {
+    background:white;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,.07);
+}
+
+/* FOOTER */
+footer {
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:40px;
+}
+footer a { color:#4da3ff; text-decoration:none; }
+footer a:hover { text-decoration:underline; }
+
 </style>
 </head>
 <body>
 
-<!-- Section en haut du profil avec logo -->
-<div class="header-profil">
-  <span class="https://www.google.com/imgres?q=logo%20a%20propos%20du%20boutique%20en%20ligne&imgurl=https%3A%2F%2Fimg.freepik.com%2Fvecteurs-premium%2Fillustration-mode-du-logo-boutique_1130904-974.jpg%3Fsemt%3Dais_hybrid%26w%3D740%26q%3D80&imgrefurl=https%3A%2F%2Ffr.freepik.com%2Fphotos-vecteurs-libre%2Flogo-boutique-vetement&docid=fK7L1uYJLOF8kM&tbnid=0w3c37qUg6M35M&vet=12ahUKEwi46fvO-9-SAxUpdUEAHXzmIpIQnPAOegQIaBAB..i&w=740&h=740&hcb=2&ved=2ahUKEwi46fvO-9-SAxUpdUEAHXzmIpIQnPAOegQIaBAB">logo</span>
-  <h1>Bienvenus</h1>
-</div>
-
-<style>
-.header-profil {
-  display: flex;             /* pour mettre le logo et le texte sur la même ligne */
-  align-items: center;       /* aligne verticalement */
-  background-color: #2c7be5;
-  color: white;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  border-bottom: 2px solid #1a5bb8;
-  gap: 15px;                 /* espace entre le logo et le texte */
-}
-
-.logo {
-  font-weight: bold;
-  /* plus tard tu peux mettre ton image à la place avec <img src="tonlogo.png"> */
-}
-</style>
-
-
-<style>
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 20px;
-  background:#f4f4f4;
-}
-
-/* Logo plus grand */
-.logo-img{
-  width:80px;
-}
-
-/* Nom en haut à droite */
-.nom-boutique{
-  font-size:24px;
-  font-weight:bold;
-  font-family:'Segoe UI', sans-serif;
-  color:#333;
-}
-</style>
-
-  <h1>Ma Boutique en Ligne</h1>
-<p>Vente simple – Paiement à la livraison – Prix en Ariary</p>
+<header>
+  <p>BIENVENUE </P>
+    <div class="logo">
+        <img src="https://img.freepik.com/vecteurs-premium/illustration-mode-du-logo-boutique_1130904-974.jpg">
+        BOUTIQUEKO
+    </div>
 </header>
 
+<div class="hero">
+    <h1>Ma Boutique en Ligne</h1>
+    <p>Paiement à la livraison — Prix en Ariary</p>
+</div>
+
 <div class="products">
-
-<!-- 1 -->
-<div class="product">
-<img src="https://png.pngtree.com/png-clipart/20230427/ourmid/pngtree-white-t-shirt-isolated-on-background-png-image_6736641.png" alt="T-shirt blanc classique">
-<h3>T-shirt blanc classique</h3>
-<p>20000Ar</p>
-<button onclick="buy('T-shirt blanc classique',15000)">Acheter</button>
+    <!-- Tous les 25 produits inchangés -->
+    <div class="product"><img src="https://png.pngtree.com/png-clipart/20230427/ourmid/pngtree-white-t-shirt-isolated-on-background-png-image_6736641.png"><h3>T-shirt blanc classique</h3><p>20000 Ar</p><button onclick="buy('T-shirt blanc classique',20000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTllYTWCl-dWkx115Y2KlT7vYVlONNwyuCouQ&s"><h3>Chemise bleue manches longues</h3><p>20000 Ar</p><button onclick="buy('Chemise bleue manches longues',20000)">Acheter</button></div>
+    <div class="product"><img src="https://www.ikks.com/dw/image/v2/BFQN_PRD/on/demandware.static/-/Sites-ikks_master_v0/default/dw332251aa/produits/ML29203-02/IKKS-JEAN~SLIM~NOIR~HOMME-ML29203-02_6.jpg?sw=736&sh=947"><h3>Jean slim noir</h3><p>30000 Ar</p><button onclick="buy('Jean slim noir',30000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQB6nKte8qbm2bpNeGK_iQIdNCq7yEg5hH9A&s"><h3>Sweat à capuche gris</h3><p>40000 Ar</p><button onclick="buy('Sweat à capuche gris',40000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO1LPCvIhtHLhsLegO8NpmVmrd3clfhCy32g&s"><h3>Veste en cuir marron</h3><p>55000 Ar</p><button onclick="buy('Veste en cuir marron',55000)">Acheter</button></div>
+    <div class="product"><img src="https://media.modz.fr/pictures/2025/08-aout/68074/zoom2/robes-courtes-femme-rouge-poussiere-d-etole-68074_077.jpg"><h3>Robe rouge courte</h3><p>30000 Ar</p><button onclick="buy('Robe rouge courte',30000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOUbt56LzlftMde1Flpy-u9vDGSP_XQEnMwg&s"><h3>Blouse fleurie</h3><p>20000 Ar</p><button onclick="buy('Blouse fleurie',20000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzV7X4TtR7hpYVfHrmF0BdU3VJPLo0W0ulHg&s"><h3>Jupe crayon noire</h3><p>15000 Ar</p><button onclick="buy('Jupe crayon noire',15000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQIvcGJGzPuwBU1lPqAHFNYr0jIYASRXClFg&s"><h3>Jean taille haute bleu clair</h3><p>30000 Ar</p><button onclick="buy('Jean taille haute bleu clair',30000)">Acheter</button></div>
+    <div class="product"><img src="https://www.cache-cache.fr/on/demandware.static/-/Sites-Cache_cache_master/default/dwdd6542d8/pull-avec-col-en-v-beige-femme-vue6-36125315850730311.jpg"><h3>Pull oversize beige</h3><p>25000 Ar</p><button onclick="buy('Pull oversize beige',25000)">Acheter</button></div>
+    <div class="product"><img src="https://podoways.fr/cdn/shop/files/Basketblancheshommeconfortable.webp?v=1742203227&width=2200"><h3>Baskets blanches classiques</h3><p>70000 Ar</p><button onclick="buy('Baskets blanches classiques',70000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTHkBL2HXTA4bGJrONdeIJEO0rpN29UCr82Q&s"><h3>Mocassins marron en cuir</h3><p>65000 Ar</p><button onclick="buy('Mocassins marron en cuir',65000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrrMAAzJ_jCCYZ7qHnsmxIoOHxZ-uamWANwA&s"><h3>Bottines noires</h3><p>60000 Ar</p><button onclick="buy('Bottines noires',60000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQsKgOr5DSxOCBhCfxlWsHg4GNMa-esAf49Q&s"><h3>Escarpins rouges</h3><p>30000 Ar</p><button onclick="buy('Escarpins rouges',30000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Yr0I_YQtwgXGbNCgn-j1vRJ__m9UqcJNbQ&s"><h3>Ballerines noires</h3><p>20000 Ar</p><button onclick="buy('Ballerines noires',20000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNicxlhHLTyw_5ysS9YE7Wdv6aB_pL8kJ2cg&s"><h3>Sandales beiges</h3><p>25000 Ar</p><button onclick="buy('Sandales beiges',25000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVY1rtBZOyargQFPtOZ22iClEq2EmFpeF4YA&s"><h3>Sac à dos noir</h3><p>50000 Ar</p><button onclick="buy('Sac à dos noir',50000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv49VTzWMl7FXqR0jrHSZk74k70rOUxkHZOg&s"><h3>Sac à bandoulière marron</h3><p>30000 Ar</p><button onclick="buy('Sac à bandoulière marron',30000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKeDNhh1oABlwR14ycGRDK3e1918_c2B8WIw&s"><h3>Sac à main rouge</h3><p>20000 Ar</p><button onclick="buy('Sac à main rouge',20000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf28pzVJureRKDxwym3yYjsfaZOAEMTws4tw&s"><h3>Pochette argentée</h3><p>40000 Ar</p><button onclick="buy('Pochette argentée',40000)">Acheter</button></div>
+    <div class="product"><img src="https://m.media-amazon.com/images/I/61j-nUQuKRL._AC_SL1000__.jpg"><h3>Casquette</h3><p>20000 Ar</p><button onclick="buy('Casquette',20000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-zavf0f-WsuR-uzElG6EVhwgFL2vG3_GILg&s"><h3>Short</h3><p>20000 Ar</p><button onclick="buy('Short',20000)">Acheter</button></div>
+    <div class="product"><img src="https://www.cdiscount.com/pdt2/3/2/5/4/700x700/sha1688342329325/rw/montre-homme-de-luxe-cadran-etoile-terre-affichage.jpg"><h3>Montre</h3><p>50000 Ar</p><button onclick="buy('Montre',50000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjF4Eu9dZgAuRtz-5SASzD-AhdaBM3DZ4oSA&s"><h3>Jogging</h3><p>40000 Ar</p><button onclick="buy('Jogging',40000)">Acheter</button></div>
+    <div class="product"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8kUFvwIT1KoxNviIxG5fB_PKLWVj28fmLrA&s"><h3>Bracelet</h3><p>50000 Ar</p><button onclick="buy('Bracelet',50000)">Acheter</button></div>
 </div>
 
-<!-- 2 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTllYTWCl-dWkx115Y2KlT7vYVlONNwyuCouQ&s" alt="Chemise bleue manches longues">
-<h3>Chemise bleue manches longues</h3>
-<p>20 000 Ar</p>
-<button onclick="buy('Chemise bleue manches longues',20000)">Acheter</button>
+<!-- FORMULAIRE -->
+<div id="formContainer">
+    <div id="formBox">
+        <h3>Commande</h3>
+        <p id="prod"></p>
+        <input id="name" placeholder="Nom">
+        <input id="contact" placeholder="Téléphone">
+        <input id="address" placeholder="Adresse"><br><br>
+        <button onclick="send()">Valider</button>
+        <button onclick="closeForm()">Annuler</button>
+    </div>
 </div>
 
-<!-- 3 -->
-<div class="product">
-<img src="https://www.ikks.com/dw/image/v2/BFQN_PRD/on/demandware.static/-/Sites-ikks_master_v0/default/dw332251aa/produits/ML29203-02/IKKS-JEAN~SLIM~NOIR~HOMME-ML29203-02_6.jpg?sw=736&sh=947" alt="Jean slim noir">
-<h3>Jean slim noir</h3>
-<p>30 000 Ar</p>
-<button onclick="buy('Jean slim noir',30000)">Acheter</button>
-</div>
+<div id="receipt"></div>
 
-<!-- 4 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQB6nKte8qbm2bpNeGK_iQIdNCq7yEg5hH9A&s" alt="Sweat à capuche gris">
-<h3>Sweat à capuche gris</h3>
-<p>40 000 Ar</p>
-<button onclick="buy('Sweat à capuche gris',40000)">Acheter</button>
-</div>
+<footer>
+📞 WhatsApp : <a href="https://wa.me/261373436938">+261373436938</a><br>
+© 2026 — BOUTIQUEKO
+</footer>
 
-<!-- 5 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO1LPCvIhtHLhsLegO8NpmVmrd3clfhCy32g&s" alt="Veste en cuir marron">
-<h3>Veste en cuir marron</h3>
-<p>55 000 Ar</p>
-<button onclick="buy('Veste en cuir marron',55000)">Acheter</button>
-</div>
+<script>
+let produit="", prix=0;
 
-<!-- 6 -->
-<div class="product">
-<img src="https://media.modz.fr/pictures/2025/08-aout/68074/zoom2/robes-courtes-femme-rouge-poussiere-d-etole-68074_077.jpg" alt="Robe rouge courte">
-<h3>Robe rouge courte</h3>
-<p>30 000 Ar</p>
-<button onclick="buy('Robe rouge courte',30000)">Acheter</button>
-</div>
-
-<!-- 7 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOUbt56LzlftMde1Flpy-u9vDGSP_XQEnMwg&s" alt="Blouse fleurie">
-<h3>Blouse fleurie</h3>
-<p>20 000 Ar</p>
-<button onclick="buy('Blouse fleurie',20000)">Acheter</button>
-</div>
-
-<!-- 8 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzV7X4TtR7hpYVfHrmF0BdU3VJPLo0W0ulHg&s" alt="Jupe crayon noire">
-<h3>Jupe crayon noire</h3>
-<p>15 000 Ar</p>
-<button onclick="buy('Jupe crayon noire',15000)">Acheter</button>
-</div>
-
-<!-- 9 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQIvcGJGzPuwBU1lPqAHFNYr0jIYASRXClFg&s" alt="Jean taille haute bleu clair">
-<h3>Jean taille haute bleu clair</h3>
-<p>30 000 Ar</p>
-<button onclick="buy('Jean taille haute bleu clair',30000)">Acheter</button>
-</div>
-
-<!-- 10 -->
-<div class="product">
-<img src="https://www.cache-cache.fr/on/demandware.static/-/Sites-Cache_cache_master/default/dwdd6542d8/pull-avec-col-en-v-beige-femme-vue6-36125315850730311.jpg" alt="Pull oversize beige">
-<h3>Pull oversize beige</h3>
-<p>25 000 Ar</p>
-<button onclick="buy('Pull oversize beige',25000)">Acheter</button>
-</div>
-
-<!-- 11 -->
-<div class="product">
-<img src="https://podoways.fr/cdn/shop/files/Basketblancheshommeconfortable.webp?v=1742203227&width=2200" alt="Baskets blanches classiques">
-<h3>Baskets blanches classiques</h3>
-<p>70 000 Ar</p>
-<button onclick="buy('Baskets blanches classiques',70000)">Acheter</button>
-</div>
-
-<!-- 12 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTHkBL2HXTA4bGJrONdeIJEO0rpN29UCr82Q&s" alt="Mocassins marron en cuir">
-<h3>Mocassins marron en cuir</h3>
-<p>65 000 Ar</p>
-<button onclick="buy('Mocassins marron en cuir',65000)">Acheter</button>
-</div>
-
-<!-- 13 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrrMAAzJ_jCCYZ7qHnsmxIoOHxZ-uamWANwA&s" alt="Bottines noires">
-<h3>Bottines noires</h3>
-<p>60 000 Ar</p>
-<button onclick="buy('Bottines noires',60000)">Acheter</button>
-</div>
-
-<!-- 14 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQsKgOr5DSxOCBhCfxlWsHg4GNMa-esAf49Q&s" alt="Escarpins rouges">
-<h3>Escarpins rouges</h3>
-<p>30 000 Ar</p>
-<button onclick="buy('Escarpins rouges',30000)">Acheter</button>
-</div>
-
-<!-- 15 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Yr0I_YQtwgXGbNCgn-j1vRJ__m9UqcJNbQ&s" alt="Ballerines noires">
-<h3>Ballerines noires</h3>
-<p>20 000 Ar</p>
-<button onclick="buy('Ballerines noires',20000)">Acheter</button>
-</div>
-
-<!-- 16 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNicxlhHLTyw_5ysS9YE7Wdv6aB_pL8kJ2cg&s" alt="Sandales beiges">
-<h3>Sandales beiges</h3>
-<p>25 000 Ar</p>
-<button onclick="buy('Sandales beiges',25000)">Acheter</button>
-</div>
-
-<!-- 17 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVY1rtBZOyargQFPtOZ22iClEq2EmFpeF4YA&s" alt="Sac à dos noir">
-<h3>Sac à dos noir</h3>
-<p>50 000 Ar</p>
-<button onclick="buy('Sac à dos noir',50000)">Acheter</button>
-</div>
-
-<!-- 18 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv49VTzWMl7FXqR0jrHSZk74k70rOUxkHZOg&s" alt="Sac à bandoulière marron">
-<h3>Sac à bandoulière marron</h3>
-<p>30 000 Ar</p>
-<button onclick="buy('Sac à bandoulière marron',30000)">Acheter</button>
-</div>
-
-<!-- 19 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKeDNhh1oABlwR14ycGRDK3e1918_c2B8WIw&s" alt="Sac à main rouge">
-<h3>Sac à main rouge</h3>
-<p>20 000 Ar</p>
-<button onclick="buy('Sac à main rouge',20000)">Acheter</button>
-</div>
-
-<!-- 20 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf28pzVJureRKDxwym3yYjsfaZOAEMTws4tw&s" alt="Pochette argentée">
-<h3>Pochette argentée</h3>
-<p>40 000 Ar</p>
-<button onclick="buy('Pochette argentée',40000)">Acheter</button>
-</div>
-  
-<!-- 21 -->
-<div class="product">
-<img src="https://m.media-amazon.com/images/I/61j-nUQuKRL._AC_SL1000__.jpg" alt="Pochette argentée">
-<h3>casquette</h3>
-<p>20 000 Ar</p>
-<button onclick="buy('casquette',20000)">Acheter</button>
-</div>
-  
-  <!-- 22 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-zavf0f-WsuR-uzElG6EVhwgFL2vG3_GILg&s" alt="short">
-<h3>short</h3>
-<p>20 000 Ar</p>
-<button onclick="buy('short',20000)">Acheter</button>
-</div>
-  <!-- 23 -->
-<div class="product">
-<img src="https://www.cdiscount.com/pdt2/3/2/5/4/700x700/sha1688342329325/rw/montre-homme-de-luxe-cadran-etoile-terre-affichage.jpg" alt="short">
-<h3>montre</h3>
-<p>50 000 Ar</p>
-<button onclick="buy('montre',50000)">Acheter</button>
-</div>
-  <!-- 24 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjF4Eu9dZgAuRtz-5SASzD-AhdaBM3DZ4oSA&s" alt="short">
-<h3>jogging</h3>
-<p>40 000 Ar</p>
-<button onclick="buy('jogging',40000)">Acheter</button>
-</div>
-  <!-- 25 -->
-<div class="product">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8kUFvwIT1KoxNviIxG5fB_PKLWVj28fmLrA&s" alt="short">
-<h3>bracelet</h3>
-<p>50 000 Ar</p>
-<button onclick="buy('bracelet',50000)">Acheter</button>
-</div>
-let p='', pr=0;
-function buy(n,price){
-p=n; pr=price;
-document.getElementById('prod').innerText=n+' - '+price+' Ar';
-document.getElementById('formContainer').style.display='flex';
+/* Charger historique */
+window.onload=function(){
+    let hist=localStorage.getItem("historiqueCommandes");
+    if(hist){document.getElementById("receipt").innerHTML=hist;}
 }
-function closeForm(){document.getElementById('formContainer').style.display='none'}
+
+function buy(n,p){
+    produit=n;
+    prix=p;
+    document.getElementById("prod").innerHTML="<b>"+n+"</b> — "+p+" Ar";
+    document.getElementById("formContainer").style.display="flex";
+}
+
+function closeForm(){
+    document.getElementById("formContainer").style.display="none";
+}
+
+/* Enregistrer commande et générer facture */
 function send(){
-let r=document.getElementById('receipt');
-r.innerHTML+=`<div class="entry">
-<strong>Reçu de vente</strong><br>
-Produit : ${p}<br>
-Prix : ${pr} Ar<br>
-Client : ${name.value}<br>
-Contact : ${contact.value}<br>
-Adresse : ${address.value}<br>
-Date : ${new Date().toLocaleString()}
-</div>`;
-closeForm();
-name.value=contact.value=address.value='';
+    let nom=document.getElementById("name").value;
+    let tel=document.getElementById("contact").value;
+    let adr=document.getElementById("address").value;
+
+    if(!nom || !tel || !adr){
+        alert("Remplis toutes les infos !");
+        return;
+    }
+
+    let bloc=`<div class="entry">
+        <h4>Facture</h4>
+        Produit : ${produit}<br>
+        Prix : ${prix} Ar<br>
+        Client : ${nom}<br>
+        Téléphone : ${tel}<br>
+        Adresse : ${adr}<br>
+        Date : ${new Date().toLocaleString()}<br>
+        <button onclick="printInvoice(this)">Imprimer</button>
+    </div>`;
+
+    document.getElementById("receipt").innerHTML+=bloc;
+
+    /* Stocker dans historique navigateur */
+    localStorage.setItem("historiqueCommandes", document.getElementById("receipt").innerHTML);
+
+    closeForm();
+    document.getElementById("name").value="";
+    document.getElementById("contact").value="";
+    document.getElementById("address").value="";
+}
+
+/* Fonction impression */
+function printInvoice(btn){
+    let entry = btn.parentElement;
+    let newWin = window.open('', '', 'width=600,height=600');
+    newWin.document.write('<html><head><title>Facture</title></head><body>');
+    newWin.document.write(entry.innerHTML);
+    newWin.document.write('</body></html>');
+    newWin.document.close();
+    newWin.print();
 }
 </script>
 
 </body>
 </html>
-v<footer class="site-footer">
-  <p>&copy; 2026 <strong>BOUTIQUEKO</strong></p>
-  <p>
-    📞 Téléphone : 
-    <a href="tel:+261385752629">+261385752629</a> |
-    <a href="tel:+261386287680">+261386287680</a>
-  </p>
-</footer>
-
-<style>
-.site-footer {
-  background-color: #111;
-  color: #fff;
-  text-align: center;
-  padding: 20px 10px;
-  font-size: 14px;
-}
-
-.site-footer a {
-  color: #4da3ff;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-</style>
-<footer style="background:#111; color:#fff; padding:20px; text-align:center;">
-    <p>📞 WhatsApp : 
-        <a href="https://wa.me/261373436938" style="color:#25D366; text-decoration:none;">
-            +261373436938
-        </a>
-    </p>
-
-    <p>📘 Facebook : 
-        <a href="https://www.facebook.com/maboutique" style="color:#1877F2; text-decoration:none;">
-            maboutique
-        </a>
-    </p>
-
-    <p style="margin-top:10px; font-size:14px;">
-        © 2026 – Tous droits réservés
-    </p>
-</footer>
-<footer class="footer">
-  <p>Merci de votre visite </p>
-  <p>&copy; 2026 — Tous droits réservés</p>
-</footer>
-<div class="logo"> 
-  <img src="https://img.freepik.com/vecteurs-premium/illustration-mode-du-logo-boutique_1130904-974.jpg?semt=ais_user_personalization&w=740&q=80" alt="Logo" class="logo-img">
-  Ma Boutique
-</div>
-
-<style>
-.logo{
-  font-size: 26px;
-  font-weight: bold;
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-  display:flex;
-  align-items:center;
-}
-
-.logo-img{
-  width:40px;
-  margin-right:8px;
-}
-</style>
-<!-- FORMULAIRE COMMANDE -->
-<div id="formContainer" style="display:none; position:fixed; inset:0;
-background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
-
-  <div style="background:#fff; padding:20px; border-radius:8px; width:300px;">
-    <h3>Commande</h3>
-    <p id="prod"></p>
-
-    <input id="name" placeholder="Nom"><br>
-    <input id="contact" placeholder="Téléphone"><br>
-    <input id="address" placeholder="Adresse"><br><br>
-
-    <button onclick="send()">Valider</button>
-    <button onclick="closeForm()">Annuler</button>
-  </div>
-</div>
-
-<!-- ZONE REÇU -->
-<div id="receipt" style="max-width:900px;margin:auto;padding:20px;"></div>
-
-
-<script>
-let produit = "";
-let prix = 0;
-
-function buy(n, p){
-  produit = n;
-  prix = p;
-  document.getElementById("prod").innerHTML =
-    "<b>" + n + "</b> — " + p + " Ar";
-  document.getElementById("formContainer").style.display = "flex";
-}
-
-function closeForm(){
-  document.getElementById("formContainer").style.display = "none";
-}
-
-function send(){
-  let nom = document.getElementById("name").value;
-  let tel = document.getElementById("contact").value;
-  let adr = document.getElementById("address").value;
-
-  if(!nom || !tel || !adr){
-    alert("Remplis toutes les infos !");
-    return;
-  }
-
-  document.getElementById("receipt").innerHTML += `
-    <div style="background:#fff;padding:15px;
-    border-radius:6px;margin-bottom:10px;">
-      <h4>Reçu de commande</h4>
-      Produit : ${produit}<br>
-      Prix : ${prix} Ar<br>
-      Client : ${nom}<br>
-      Téléphone : ${tel}<br>
-      Adresse : ${adr}<br>
-      Date : ${new Date().toLocaleString()}
-    </div>
-  `;
-
-  closeForm();
-  name.value = contact.value = address.value = "";
-}
-</script>
-<script>
-let produit = "";
-let prix = 0;
-
-/* 🔹 charger historique au démarrage */
-window.onload = function(){
-  let hist = localStorage.getItem("historiqueCommandes");
-  if(hist){
-    document.getElementById("receipt").innerHTML = hist;
-  }
-};
-
-function buy(n, p){
-  produit = n;
-  prix = p;
-  document.getElementById("prod").innerHTML =
-    "<b>" + n + "</b> — " + p + " Ar";
-  document.getElementById("formContainer").style.display = "flex";
-}
-
-function closeForm(){
-  document.getElementById("formContainer").style.display = "none";
-}
-
-function send(){
-  let nom = document.getElementById("name").value;
-  let tel = document.getElementById("contact").value;
-  let adr = document.getElementById("address").value;
-
-  if(!nom || !tel || !adr){
-    alert("Remplis toutes les infos !");
-    return;
-  }
-
-  let bloc = `
-    <div style="background:#fff;padding:15px;border-radius:6px;margin-bottom:10px;">
-      <h4>Reçu de commande</h4>
-      Produit : ${produit}<br>
-      Prix : ${prix} Ar<br>
-      Client : ${nom}<br>
-      Téléphone : ${tel}<br>
-      Adresse : ${adr}<br>
-      Date : ${new Date().toLocaleString()}
-    </div>
-  `;
-
-  /* 🔹 afficher */
-  document.getElementById("receipt").innerHTML += bloc;
-
-  /* 🔹 stocker dans historique navigateur */
-  localStorage.setItem(
-    "historiqueCommandes",
-    document.getElementById("receipt").innerHTML
-  );
-
-  closeForm();
-  document.getElementById("name").value="";
-  document.getElementById("contact").value="";
-  document.getElementById("address").value="";
-}
-</script>
